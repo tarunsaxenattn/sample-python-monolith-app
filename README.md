@@ -18,11 +18,6 @@ docker build . -t sample-python-monolith-app -f docker/Dockerfile
 docker run -itd --name sample-python-monolith-app -p 5000:5000 sample-python-monolith-app
 ```
 
-## Destroy
-```
-docker rm -f sample-python-monolith-app
-```
-
 ## APIs
 
 ### GET /ui => UI service
@@ -47,4 +42,9 @@ Login Service is healthy
 ```
 curl localhost:5000/health
 app is healthy
+```
+
+## Destroy
+```
+docker rm -f sample-python-monolith-app
 ```

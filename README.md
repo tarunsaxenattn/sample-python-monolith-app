@@ -14,5 +14,10 @@ docker build . -t sample-python-monolith-app -f docker/Dockerfile
 ## Run App locally
 
 ```
-docker run -itd -p 5000:5000 sample-python-monolith-app
+docker run -itd --name sample-python-monolith-app -p 5000:5000 sample-python-monolith-app
+```
+
+## Destroy
+```
+docker rm -f sample-python-monolith-app
 ```

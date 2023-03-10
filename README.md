@@ -8,6 +8,7 @@
 
 ```
 git clone git@github.com:tarunsaxenattn/sample-python-monolith-app.git
+cd sample-python-monolith-app
 docker build . -t sample-python-monolith-app -f docker/Dockerfile
 ```
 

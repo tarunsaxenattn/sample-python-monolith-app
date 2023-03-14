@@ -24,7 +24,7 @@ docker run -itd -e healthcheckhost=127.0.0.1 --name sample-python-monolith-app -
 docker run -itd -e healthcheckhost=<APIHOST> --name sample-python-monolith-app -p 80:80 sample-python-monolith-app
 ```
 
-> The environment variable is mandatory to pass for healthcheck to work. Intentionally this is not made default
+> The environment variable is mandatory to pass for healthcheck to work. Intentionally this is not made default variable
 
 
 ## APIs

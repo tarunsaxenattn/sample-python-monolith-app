@@ -20,7 +20,7 @@ docker run -itd --name sample-python-monolith-app -p 5000:5000 sample-python-mon
 
 ## APIs
 
-### GET /ui => UI service
+### GET / => UI service
 ```
 curl localhost:5000/ui
 UI Service is healthy

@@ -12,36 +12,44 @@ cd sample-python-monolith-app
 docker build . -t sample-python-monolith-app -f docker/Dockerfile
 ```
 
-## Run App locally
+## Run App locally for monolith app for internal healthcheck
 
 ```
-docker run -itd --name sample-python-monolith-app -p 80:80 sample-python-monolith-app
+docker run -itd -e healthcheckhost=127.0.0.1 --name sample-python-monolith-app -p 80:80 sample-python-monolith-app
 ```
+
+## Run App in microservices mode for external healthcheck
+
+```
+docker run -itd -e healthcheckhost=<APIHOST> --name sample-python-monolith-app -p 80:80 sample-python-monolith-app
+```
+
 
 ## APIs
 
 ### GET / => UI service
 ```
-curl localhost:5000/ui
-UI Service is healthy
+curl localhost/ui
+UI
 ```
 
 ### GET /payment => Payment service
 ```
-curl localhost:5000/payment
-Payment Service is healthy
+curl localhost/payment
+Payment page
 ```
 
 ### GET /login => Login service
 ```
-curl localhost:5000/login
-Login Service is healthy
+curl localhost/login
+Login page
 ```
 
-### GET /health => healthcheck service
+### GET /healthcheck => healthcheck service
 ```
-curl localhost:5000/health
-app is healthy
+curl localhost/healthcheck   (For 127.0.0.1)
+
+{"hostname": "66bac320fd75", "status": "success", "timestamp": 1678819024.6349406, "results": [{"checker": "login_available", "output": "Login up @@ ", "passed": true, "timestamp": 1678819024.631133, "expires": 1678819051.631133}, {"checker": "payment_available", "output": "Payment up @@ ", "passed": true, "timestamp": 1678819024.6346788, "expires": 1678819051.6346788}]}
 ```
 
 ## Destroy
